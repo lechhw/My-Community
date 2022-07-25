@@ -12,6 +12,9 @@ app.use(express.static(path.join(__dirname, './client/build')));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+// router 연결
+app.use('/api/post', require('./server/router/postRouter'));
+
 // mongoDB 연결
 app.listen(port, () => {
   mongoose.connect(config.mongoURI).then(() => {

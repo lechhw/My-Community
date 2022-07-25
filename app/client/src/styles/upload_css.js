@@ -49,20 +49,40 @@ const UploadDiv = styled.div`
 
       button {
         width: 100%;
+
         padding: 1rem 2rem;
         font-size: 1.1rem;
         font-weight: 700;
         color: #ffffff;
         border-radius: 0.6rem;
         background-color: #2fa4ff;
-        transition: background-color 200ms ease-in-out;
+        transition: background-color 200ms ease-in-out,
+          opacity 200ms ease-in-out;
 
         &:hover {
           background-color: #47b5ff;
+        }
+      }
+
+      .cancel {
+        margin-right: 3rem;
+        color: #2fa4ff;
+        background-color: #ffffff;
+        border: 2px solid #2fa4ff;
+
+        &:hover {
+          background-color: #ffffff;
+          opacity: 0.7;
         }
       }
     }
   }
 `;
 
-export { UploadDiv };
+const SpinnerDiv = styled.div`
+  display: flex;
+  justify-content: center;
+  padding-top: 15rem;
+`;
+
+export { UploadDiv, SpinnerDiv };

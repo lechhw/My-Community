@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { PostListDiv, PostItem } from '../../styles/postList_css';
 
 function PostList({ postList }) {
@@ -7,8 +8,10 @@ function PostList({ postList }) {
       {postList.map((post, idx) => {
         return (
           <PostItem key={idx}>
-            <h2 className="title">{post.title}</h2>
-            <p className="content">{post.content}</p>
+            <Link to={`/post/${post.postNum}`}>
+              <h2 className="title">{post.title}</h2>
+              <p className="content">{post.content}</p>
+            </Link>
           </PostItem>
         );
       })}
