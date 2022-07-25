@@ -91,7 +91,16 @@ function PostDetail() {
               )}
             </div>
           </header>
+
           <div className="content">
+            {postInfo.image && (
+              <div className="imgContainer">
+                <div className="imgDiv">
+                  <img src={postInfo.image} alt="" />
+                </div>
+              </div>
+            )}
+
             <p>{postInfo.content}</p>
           </div>
         </Post>

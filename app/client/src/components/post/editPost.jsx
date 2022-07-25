@@ -9,6 +9,7 @@ function EditPost() {
   const [postInfo, setPostInfo] = useState({});
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
+  const [image, setImage] = useState('');
   const [loading, setLoading] = useState(false);
   let params = useParams();
   let navigate = useNavigate();
@@ -23,6 +24,7 @@ function EditPost() {
     let body = {
       title,
       content,
+      image,
       postNum: params.postNum,
     };
 
@@ -58,6 +60,7 @@ function EditPost() {
   useEffect(() => {
     setTitle(postInfo.title);
     setContent(postInfo.content);
+    setImage(postInfo.image);
   }, [postInfo]);
 
   return (
@@ -74,7 +77,15 @@ function EditPost() {
             }}
           />
 
-          <ImageUploader />
+          <ImageUploader setImage={setImage} />
+
+          {image && (
+            <div className="imgContainer">
+              <div className="imgDiv">
+                <img src={image} alt="" />
+              </div>
+            </div>
+          )}
 
           <textarea
             value={content || ''}

@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 const UploadDiv = styled.div`
   max-width: 82.5rem;
   margin: 0 auto;
-  padding-top: 3rem;
+  padding: 2.8rem 0;
 
   form {
     display: flex;
@@ -26,6 +26,32 @@ const UploadDiv = styled.div`
       border-radius: 0.6rem;
       border: 1px solid #c6c6c6;
       outline-color: #2fa4ff;
+    }
+
+    .imgContainer {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin-top: 1rem;
+      padding: 0.5rem;
+      border-radius: 0.6rem;
+      border: 1px solid #c6c6c6;
+
+      .imgDiv {
+        position: relative;
+        width: 20rem;
+        height: 14rem;
+
+        img {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+          object-position: center;
+        }
+      }
     }
 
     textarea {

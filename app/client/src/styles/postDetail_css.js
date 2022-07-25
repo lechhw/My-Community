@@ -63,8 +63,29 @@ const Post = styled.div`
   }
 
   .content {
-    font-size: 1.1rem;
     padding: 1.5rem;
+
+    .imgContainer {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+
+      .imgDiv {
+        position: relative;
+        width: 20rem;
+        height: 14rem;
+
+        img {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+          object-position: center;
+        }
+      }
+    }
   }
 `;
 

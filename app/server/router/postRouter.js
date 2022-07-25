@@ -4,12 +4,14 @@ const router = express.Router();
 // 데이터 모델
 const { Post } = require('../model/postModel');
 const { Counter } = require('../model/counterModel');
+const setUpload = require('../util/uploadUtil');
 
 // post submit
 router.post('/submit', (req, res) => {
   let temp = {
     title: req.body.title,
     content: req.body.content,
+    image: req.body.image,
   };
 
   Counter.findOne({ name: 'counter' })
@@ -60,6 +62,7 @@ router.post('/edit', (req, res) => {
   let temp = {
     title: req.body.title,
     content: req.body.content,
+    image: req.body.image,
   };
   Post.findOneAndUpdate({ postNum: Number(req.body.postNum) }, { $set: temp })
     .exec()
@@ -81,5 +84,14 @@ router.post('/delete', (req, res) => {
       res.status(400).json({ success: false });
     });
 });
+
+// image upload
+router.post(
+  '/image/upload',
+  setUpload('my-community/post'),
+  (req, res, next) => {
+    res.status(200).json({ success: true, filePath: res.req.file.location });
+  }
+);
 
 module.exports = router;

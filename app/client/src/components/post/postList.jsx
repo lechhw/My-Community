@@ -7,12 +7,25 @@ function PostList({ postList }) {
     <PostListDiv>
       {postList.map((post, idx) => {
         return (
-          <PostItem key={idx}>
-            <Link to={`/post/${post.postNum}`}>
-              <h2 className="title">{post.title}</h2>
-              <p className="content">{post.content}</p>
-            </Link>
-          </PostItem>
+          <Link key={idx} to={`/post/${post.postNum}`}>
+            <PostItem>
+              <div className="header">
+                <h2 className="title">{post.title}</h2>
+              </div>
+
+              <div className="content">
+                {post.image && (
+                  <div className="imgContainer">
+                    <div className="imgDiv">
+                      <img src={post.image} alt="" />
+                    </div>
+                  </div>
+                )}
+
+                <p>{post.content}</p>
+              </div>
+            </PostItem>
+          </Link>
         );
       })}
     </PostListDiv>

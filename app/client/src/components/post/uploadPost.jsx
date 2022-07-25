@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 function UploadPost() {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
+  const [image, setImage] = useState('');
   let navigate = useNavigate();
 
   const onSubmit = (e) => {
@@ -15,6 +16,7 @@ function UploadPost() {
     let body = {
       title,
       content,
+      image,
     };
 
     axios.post('/api/post/submit', body).then((response) => {
@@ -41,7 +43,16 @@ function UploadPost() {
           }}
         />
 
-        <ImageUploader />
+        <ImageUploader setImage={setImage} />
+
+        {image && (
+          <div className="imgContainer">
+            <div className="imgDiv">
+              <img src={image} alt="" />
+            </div>
+          </div>
+        )}
+
         <textarea
           placeholder="내용을 입력해주세요."
           value={content}
