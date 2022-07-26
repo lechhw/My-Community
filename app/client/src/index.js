@@ -5,6 +5,8 @@ import reset from 'styled-reset';
 import './index.css';
 import App from './app';
 import { BrowserRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import store from './reducer/store';
 
 // reset css
 const GlobalStyle = createGlobalStyle`
@@ -31,7 +33,9 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <GlobalStyle />
-      <App />
+      <Provider store={store}>
+        <App />
+      </Provider>
     </BrowserRouter>
   </React.StrictMode>
 );

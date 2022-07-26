@@ -1,13 +1,15 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { UploadDiv } from '../../styles/upload_css';
 import ImageUploader from './imageUploader';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 function UploadPost() {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const [image, setImage] = useState('');
+  const user = useSelector((state) => state.user);
   let navigate = useNavigate();
 
   const onSubmit = (e) => {
@@ -21,13 +23,21 @@ function UploadPost() {
 
     axios.post('/api/post/submit', body).then((response) => {
       if (response.data.success) {
-        alert('게시글 작성이 완료되었습니다!');
+        alert('게시글 작성이 완료되었습니다.');
         navigate('/');
       } else {
-        alert('게시글 작성에 실패하였습니다!');
+        alert('❗️ 게시글 작성에 실패하였습니다.');
       }
     });
   };
+
+  // 로그인 체크
+  useEffect(() => {
+    if (!user.accessToken) {
+      alert('❗️ 로그인한 회원만 글 작성이 가능합니다.');
+      navigate('/login');
+    }
+  }, []);
 
   return (
     <UploadDiv>

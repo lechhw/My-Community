@@ -1,12 +1,24 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { HeaderDiv, IconDiv } from '../styles/header_css';
 import { Navbar, Container } from 'react-bootstrap';
+import { useSelector } from 'react-redux';
+import firebase from '../firebase';
 
 function Header() {
   const [openUserModal, setOpenUserModal] = useState(false);
   const modalRef = useRef();
+  let navigate = useNavigate();
+  const user = useSelector((state) => state.user);
   useOnClickOutside(modalRef, () => setOpenUserModal(false));
+
+  const logoutFunc = (e) => {
+    e.preventDefault();
+    firebase.auth().signOut();
+    alert('로그아웃 되었습니다.');
+    navigate('/');
+    setOpenUserModal(false);
+  };
 
   return (
     <HeaderDiv>
@@ -33,7 +45,23 @@ function Header() {
               {openUserModal && (
                 <div ref={modalRef} className="userModal">
                   <button>MyPage</button>
-                  <button className="logout">Logout</button>
+
+                  {user.accessToken ? (
+                    <button className="logout" onClick={logoutFunc}>
+                      Logout
+                    </button>
+                  ) : (
+                    <button
+                      className="login"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        navigate('/login');
+                        setOpenUserModal(false);
+                      }}
+                    >
+                      Login
+                    </button>
+                  )}
                 </div>
               )}
             </div>

@@ -38,7 +38,7 @@ const IconDiv = styled.div`
     transition: color 250ms ease-in-out;
 
     &:hover {
-      color: #4b7be5;
+      color: #2fa4ff;
     }
   }
 
@@ -69,6 +69,10 @@ const IconDiv = styled.div`
         &:hover {
           opacity: 0.6;
         }
+      }
+
+      .login {
+        color: #eb4747;
       }
 
       .logout {
