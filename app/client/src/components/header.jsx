@@ -8,8 +8,9 @@ import firebase from '../firebase';
 function Header() {
   const [openUserModal, setOpenUserModal] = useState(false);
   const modalRef = useRef();
-  let navigate = useNavigate();
   const user = useSelector((state) => state.user);
+  let navigate = useNavigate();
+
   useOnClickOutside(modalRef, () => setOpenUserModal(false));
 
   const logoutFunc = (e) => {
@@ -25,18 +26,18 @@ function Header() {
       <Navbar bg="light" expand="lg">
         <Container className="container">
           <Navbar.Brand href="/" className="logoDiv">
-            <img src="/images/logo.svg" alt="" />
+            <img src="/images/logo.svg" alt="logo" />
             <h1>My Community</h1>
           </Navbar.Brand>
 
           <IconDiv>
-            <Link to={'/upload'} className="icon upload">
+            <Link to={'/upload'} className="icon is-upload">
               <i className="fa-solid fa-pen-to-square"></i>
             </Link>
 
             <div className="userDiv">
               <button
-                className="icon user"
+                className="icon is-user"
                 onClick={() => setOpenUserModal(true)}
               >
                 <i className="fa-solid fa-user-large"></i>
@@ -44,7 +45,16 @@ function Header() {
 
               {openUserModal && (
                 <div ref={modalRef} className="userModal">
-                  <button>MyPage</button>
+                  {user.accessToken && (
+                    <button
+                      onClick={() => {
+                        navigate('/myPage');
+                        setOpenUserModal(false);
+                      }}
+                    >
+                      MyPage
+                    </button>
+                  )}
 
                   {user.accessToken ? (
                     <button className="logout" onClick={logoutFunc}>

@@ -7,6 +7,7 @@ import EditPost from './components/post/editPost';
 import PostDetail from './components/post/postDetail';
 import UploadPost from './components/post/uploadPost';
 import Login from './components/user/login';
+import MyPage from './components/user/myPage';
 import Register from './components/user/register';
 import firebase from './firebase';
 import { clearUser, loginUser } from './reducer/userSlice';
@@ -23,7 +24,7 @@ function App() {
         dispatch(clearUser());
       }
     });
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className="App">
@@ -36,6 +37,7 @@ function App() {
 
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/myPage" element={<MyPage />} />
       </Routes>
     </div>
   );

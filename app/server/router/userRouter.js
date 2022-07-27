@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const setUpload = require('../util/uploadUtil');
 
 const { User } = require('../model/userModel');
 const { Counter } = require('../model/counterModel');
@@ -40,6 +41,32 @@ router.post('/nameCheck', (req, res) => {
         check = false;
       }
       res.status(200).json({ success: true, check });
+    })
+    .catch((error) => {
+      res.status(400).json({ success: false });
+    });
+});
+
+// 프로필 이미지 저장
+router.post(
+  '/profile/image',
+  setUpload('my-community/user'),
+  (req, res, next) => {
+    res.status(200).json({ success: true, filePath: res.req.file.location });
+  }
+);
+
+// 프로필 업데이트
+
+router.post('/profile/update', (req, res) => {
+  let temp = {
+    photoURL: req.body.photoURL,
+    displayName: req.body.displayName,
+  };
+  User.updateOne({ uid: req.body.uid }, { $set: temp })
+    .exec()
+    .then(() => {
+      res.status(200).json({ success: true });
     })
     .catch((error) => {
       res.status(400).json({ success: false });

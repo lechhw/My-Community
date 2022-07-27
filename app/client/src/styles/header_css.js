@@ -42,7 +42,7 @@ const IconDiv = styled.div`
     }
   }
 
-  .upload {
+  .is-upload {
     margin-right: 1.6rem;
   }
 
@@ -65,6 +65,7 @@ const IconDiv = styled.div`
       button {
         padding: 0.6rem;
         font-weight: 600;
+        color: #363636;
 
         &:hover {
           opacity: 0.6;
