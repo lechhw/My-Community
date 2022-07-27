@@ -47,7 +47,7 @@ function Login() {
     if (user.accessToken) {
       navigate('/');
     }
-  }, []);
+  }, [user, navigate]);
 
   return (
     <LoginDiv>
