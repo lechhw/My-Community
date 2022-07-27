@@ -39,7 +39,8 @@ function UploadPost() {
 
   // 로그인 체크
   useEffect(() => {
-    if (!user.accessToken) {
+    if (user.isLoading && !user.accessToken) {
+      // user.isLoading : 새로고침시 useData 의 값이 사라짐으로 인해 로그인 페이지로 가는 것을 방지
       alert('❗️ 로그인한 회원만 글 작성이 가능합니다.');
       navigate('/login');
     }
