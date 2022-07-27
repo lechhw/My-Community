@@ -15,6 +15,10 @@ function UploadPost() {
   const onSubmit = (e) => {
     e.preventDefault();
 
+    if (title === '' || content === '') {
+      return alert('❗️ 모든 항목을 작성해 주세요.');
+    }
+
     let body = {
       title,
       content,
@@ -37,7 +41,7 @@ function UploadPost() {
       alert('❗️ 로그인한 회원만 글 작성이 가능합니다.');
       navigate('/login');
     }
-  }, []);
+  }, [user, navigate]);
 
   return (
     <UploadDiv>
@@ -58,7 +62,7 @@ function UploadPost() {
         {image && (
           <div className="imgContainer">
             <div className="imgDiv">
-              <img src={image} alt="" />
+              <img src={image} alt="post" />
             </div>
           </div>
         )}
