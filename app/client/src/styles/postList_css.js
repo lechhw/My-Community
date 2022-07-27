@@ -21,12 +21,41 @@ const PostItem = styled.div`
 
   .header {
     width: 100%;
-    padding: 2rem 1.5rem;
+    padding: 1.5rem;
     border-bottom: 1px solid #c6c6c6;
 
     .title {
       font-size: 1.5rem;
       font-weight: 600;
+      margin-bottom: 0.8rem;
+    }
+
+    .postInfo {
+      display: flex;
+      .avatar {
+        width: 40px;
+        height: 40px;
+        margin-right: 0.6rem;
+        border-radius: 50%;
+        overflow: hidden;
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
+        img {
+          display: block;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+
+      .record {
+        padding-top: 0.5rem;
+
+        .name {
+          font-weight: 600;
+          font-size: 0.95rem;
+        }
+      }
     }
   }
 

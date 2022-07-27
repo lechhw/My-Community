@@ -16,47 +16,82 @@ const Post = styled.div`
   .header {
     display: flex;
     justify-content: space-between;
-    font-size: 1.4rem;
-    font-weight: 600;
-    padding: 2.5rem 1.5rem;
+    padding: 1.5rem;
     border-bottom: 1px solid #c6c6c6;
 
-    .editGroup {
-      position: relative;
-
-      .editBtn {
-        color: #112b3c;
-        transition: color 250ms ease-in-out;
-
-        &:hover {
-          color: #2fa4ff;
-        }
+    .postInfoDiv {
+      .title {
+        font-size: 1.4rem;
+        font-weight: 600;
+        margin-bottom: 0.8rem;
       }
 
-      .editModal {
-        position: absolute;
-        left: -1.5rem;
-        top: 2rem;
+      .postInfo {
         display: flex;
-        flex-direction: column;
-        width: max-content;
-        background-color: #ffffff;
-        border-radius: 0.6rem;
-        padding: 0.3rem;
-        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 
-        button {
-          font-size: 0.95rem;
-          font-weight: 600;
-          padding: 0.6rem 1.5rem;
+        .avatar {
+          width: 40px;
+          height: 40px;
+          margin-right: 0.6rem;
+          border-radius: 50%;
+          overflow: hidden;
+          box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 
-          &:hover {
-            opacity: 0.6;
+          img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
           }
         }
 
-        .delete {
-          color: #eb4747;
+        .record {
+          padding-top: 0.5rem;
+
+          .name {
+            font-weight: 600;
+            font-size: 0.95rem;
+          }
+        }
+      }
+
+      .editGroup {
+        position: relative;
+
+        .editBtn {
+          color: #112b3c;
+          transition: color 250ms ease-in-out;
+
+          &:hover {
+            color: #2fa4ff;
+          }
+        }
+
+        .editModal {
+          position: absolute;
+          left: -1.5rem;
+          top: 2rem;
+          display: flex;
+          flex-direction: column;
+          width: max-content;
+          background-color: #ffffff;
+          border-radius: 0.6rem;
+          padding: 0.3rem;
+          box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
+          button {
+            font-size: 0.95rem;
+            font-weight: 600;
+            padding: 0.6rem 1.5rem;
+
+            &:hover {
+              opacity: 0.6;
+            }
+          }
+
+          .delete {
+            color: #eb4747;
+          }
         }
       }
     }

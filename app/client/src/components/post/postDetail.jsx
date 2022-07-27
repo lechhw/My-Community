@@ -63,7 +63,21 @@ function PostDetail() {
       {loading ? (
         <Post>
           <header className="header">
-            <p>{postInfo.title}</p>
+            <div className="postInfoDiv">
+              <h2 className="title">{postInfo.title}</h2>
+
+              <div className="postInfo">
+                <div className="avatar">
+                  <img src={postInfo.author.photoURL} alt="avatar" />
+                </div>
+
+                <div className="record">
+                  <strong className="name">
+                    {postInfo.author.displayName}
+                  </strong>
+                </div>
+              </div>
+            </div>
 
             <div className="editGroup">
               <button

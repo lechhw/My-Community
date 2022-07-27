@@ -11,13 +11,23 @@ function PostList({ postList }) {
             <PostItem>
               <div className="header">
                 <h2 className="title">{post.title}</h2>
+
+                <div className="postInfo">
+                  <div className="avatar">
+                    <img src={post.author.photoURL} alt="avatar" />
+                  </div>
+
+                  <div className="record">
+                    <strong className="name">{post.author.displayName}</strong>
+                  </div>
+                </div>
               </div>
 
               <div className="content">
                 {post.image && (
                   <div className="imgContainer">
                     <div className="imgDiv">
-                      <img src={post.image} alt="" />
+                      <img src={post.image} alt="post" />
                     </div>
                   </div>
                 )}
