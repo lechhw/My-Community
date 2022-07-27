@@ -6,6 +6,7 @@ const userSchema = new mongoose.Schema(
     email: String,
     uid: String,
     userNum: Number,
+    photoURL: String,
   },
   { Collation: 'users' }
 );

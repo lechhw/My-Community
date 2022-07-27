@@ -73,12 +73,16 @@ function Register() {
 
       await createUser.user.updateProfile({
         displayName: name,
+        photoURL:
+          'https://kr.object.ncloudstorage.com/my-community/user/user.png',
       });
 
       let body = {
         displayName: createUser.user._delegate.displayName,
         email: createUser.user._delegate.email,
         uid: createUser.user._delegate.uid,
+        photoURL:
+          'https://kr.object.ncloudstorage.com/my-community/user/user.png',
       };
 
       axios

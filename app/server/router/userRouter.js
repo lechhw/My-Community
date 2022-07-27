@@ -10,6 +10,7 @@ router.post('/register', (req, res) => {
     displayName: req.body.displayName,
     email: req.body.email,
     uid: req.body.uid,
+    photoURL: req.body.photoURL,
   };
   Counter.findOne({ name: 'counter' })
     .exec()
