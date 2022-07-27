@@ -12,6 +12,7 @@ function UploadPost() {
   const user = useSelector((state) => state.user);
   let navigate = useNavigate();
 
+  // 포스트 업로드
   const onSubmit = (e) => {
     e.preventDefault();
 
@@ -23,6 +24,7 @@ function UploadPost() {
       title,
       content,
       image,
+      uid: user.uid,
     };
 
     axios.post('/api/post/submit', body).then((response) => {

@@ -1,10 +1,11 @@
 const express = require('express');
 const router = express.Router();
+const setUpload = require('../util/uploadUtil');
 
 // 데이터 모델
 const { Post } = require('../model/postModel');
 const { Counter } = require('../model/counterModel');
-const setUpload = require('../util/uploadUtil');
+const { User } = require('../model/userModel');
 
 // post submit
 router.post('/submit', (req, res) => {
@@ -19,14 +20,21 @@ router.post('/submit', (req, res) => {
     .then((counter) => {
       temp.postNum = counter.postNum;
 
-      const communityPost = new Post(temp);
-      communityPost.save().then(() => {
-        Counter.updateOne({ name: 'counter' }, { $inc: { postNum: 1 } }).then(
-          () => {
-            res.status(200).json({ success: true });
-          }
-        );
-      });
+      User.findOne({ uid: req.body.uid })
+        .exec()
+        .then((userData) => {
+          temp.author = userData._id;
+
+          const communityPost = new Post(temp);
+          communityPost.save().then(() => {
+            Counter.updateOne(
+              { name: 'counter' },
+              { $inc: { postNum: 1 } }
+            ).then(() => {
+              res.status(200).json({ success: true });
+            });
+          });
+        });
     })
     .catch((error) => {
       res.status(400).json({ success: false });
@@ -36,6 +44,7 @@ router.post('/submit', (req, res) => {
 // post list
 router.post('/list', (req, res) => {
   Post.find()
+    .populate('author')
     .exec()
     .then((doc) => {
       res.status(200).json({ success: true, postList: doc });
@@ -48,6 +57,7 @@ router.post('/list', (req, res) => {
 // post detail
 router.post('/detail', (req, res) => {
   Post.findOne({ postNum: Number(req.body.postNum) })
+    .populate('author')
     .exec()
     .then((doc) => {
       res.status(200).json({ success: true, post: doc });
