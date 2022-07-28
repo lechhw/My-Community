@@ -3,6 +3,10 @@ import styled from '@emotion/styled';
 const HeaderDiv = styled.div`
   font-family: 'Mukta', sans-serif;
 
+  .container {
+    max-width: 68rem;
+  }
+
   .logoDiv {
     display: flex;
     align-items: center;
@@ -27,10 +31,6 @@ const HeaderDiv = styled.div`
 const IconDiv = styled.div`
   display: flex;
   align-items: center;
-
-  @media screen and (max-width: 575px) {
-    padding-right: 1.6rem;
-  }
 
   .icon {
     font-size: 1.2rem;

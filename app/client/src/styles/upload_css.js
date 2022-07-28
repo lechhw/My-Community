@@ -75,7 +75,6 @@ const UploadDiv = styled.div`
 
       button {
         width: 100%;
-
         padding: 1rem 2rem;
         font-size: 1.1rem;
         font-weight: 700;

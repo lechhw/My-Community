@@ -3,8 +3,8 @@ import styled from '@emotion/styled';
 // login form css
 const LoginDiv = styled.div`
   max-width: 22rem;
-  margin: 0 auto;
   padding: 1rem 0;
+  margin: 0 auto;
   margin-top: 5rem;
   border-radius: 0.6rem;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
@@ -17,15 +17,15 @@ const LoginDiv = styled.div`
     display: flex;
     flex-direction: column;
     width: 90%;
-    margin: 0 auto;
     padding: 1rem;
+    margin: 0 auto;
 
     h2 {
+      margin-bottom: 1rem;
       font-size: 1.5rem;
       font-weight: 700;
       color: #112b3c;
       text-align: center;
-      margin-bottom: 1rem;
     }
 
     input {
@@ -49,9 +49,9 @@ const LoginDiv = styled.div`
     }
 
     .login {
+      margin: 0.4rem 0;
       color: white;
       background-color: #2fa4ff;
-      margin: 0.4rem 0;
     }
 
     .register {
@@ -60,8 +60,8 @@ const LoginDiv = styled.div`
     }
 
     .errorMsg {
-      text-align: center;
       margin-bottom: 0.3rem;
+      text-align: center;
     }
   }
 `;

@@ -1,17 +1,16 @@
 import styled from '@emotion/styled';
 
 const PostListDiv = styled.div`
-  max-width: 82.5rem;
+  max-width: 62.5rem;
+  padding: 0 1rem;
   margin: 0 auto;
   margin-top: 3rem;
 `;
 
 const PostItem = styled.div`
-  width: 90%;
-  margin: 0 auto;
   margin-top: 1.5rem;
-  border-radius: 0.4rem;
-  border: 1px solid #c6c6c6;
+  border-radius: 0.3rem;
+  border: 1px solid #dddddd;
   cursor: pointer;
   transition: box-shadow 200ms ease-in-out;
 
@@ -22,16 +21,18 @@ const PostItem = styled.div`
   .header {
     width: 100%;
     padding: 1.5rem;
-    border-bottom: 1px solid #c6c6c6;
+    border-bottom: 1px solid #dddddd;
 
     .title {
+      margin-bottom: 0.8rem;
       font-size: 1.5rem;
       font-weight: 600;
-      margin-bottom: 0.8rem;
+      color: #363636;
     }
 
     .postInfo {
       display: flex;
+
       .avatar {
         width: 40px;
         height: 40px;
@@ -52,16 +53,18 @@ const PostItem = styled.div`
         padding-top: 0.5rem;
 
         .name {
-          font-weight: 600;
           font-size: 0.95rem;
+          font-weight: 600;
+          color: #363636;
         }
       }
     }
   }
 
   .content {
-    padding: 2rem 1.5rem;
+    padding: 1.5rem;
     font-size: 1.1rem;
+    color: #2d2d2d;
 
     .imgContainer {
       display: flex;

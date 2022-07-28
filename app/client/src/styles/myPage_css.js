@@ -96,7 +96,7 @@ const MyPageDiv = styled.form`
         font-size: 0.9rem;
         font-weight: 600;
         color: #ffffff;
-        background-color: #2fa4ff;
+        background-color: #112b3c;
         border-radius: 0.6rem;
         transition: opacity 150ms ease-in-out;
 
@@ -121,7 +121,7 @@ const MyPageDiv = styled.form`
     font-size: 1.2rem;
     font-weight: 700;
     color: #ffffff;
-    background-color: #112b3c;
+    background-color: #2fa4ff;
     border-radius: 0.8rem;
     transition: opacity 150ms ease-in-out;
 
