@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
 import { PostDetailDiv, Post, SpinnerDiv } from '../../styles/postDetail_css';
 import { Spinner } from 'react-bootstrap';
+import ReplyArea from '../reply/replyArea';
 
 function PostDetail() {
   const [postInfo, setPostInfo] = useState({});
@@ -61,63 +62,67 @@ function PostDetail() {
   return (
     <PostDetailDiv>
       {loading ? (
-        <Post>
-          <header className="header">
-            <div className="postInfoDiv">
-              <h2 className="title">{postInfo.title}</h2>
+        <>
+          <Post>
+            <header className="header">
+              <div className="postInfoDiv">
+                <h2 className="title">{postInfo.title}</h2>
 
-              <div className="postInfo">
-                <div className="avatar">
-                  <img src={postInfo.author.photoURL} alt="avatar" />
-                </div>
+                <div className="postInfo">
+                  <div className="avatar">
+                    <img src={postInfo.author.photoURL} alt="avatar" />
+                  </div>
 
-                <div className="record">
-                  <strong className="name">
-                    {postInfo.author.displayName}
-                  </strong>
+                  <div className="record">
+                    <strong className="name">
+                      {postInfo.author.displayName}
+                    </strong>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            <div className="editGroup">
-              <button
-                className="editBtn"
-                onClick={() => {
-                  setOpenEditModal(true);
-                }}
-              >
-                <i className="fa-solid fa-ellipsis"></i>
-              </button>
+              <div className="editGroup">
+                <button
+                  className="editBtn"
+                  onClick={() => {
+                    setOpenEditModal(true);
+                  }}
+                >
+                  <i className="fa-solid fa-ellipsis"></i>
+                </button>
 
-              {openEditModal && (
-                <div ref={modalRef} className="editModal">
-                  <button
-                    onClick={() => {
-                      navigate(`/post/edit/${postInfo.postNum}`);
-                    }}
-                  >
-                    수정
-                  </button>
-                  <button className="delete" onClick={deletePost}>
-                    삭제
-                  </button>
+                {openEditModal && (
+                  <div ref={modalRef} className="editModal">
+                    <button
+                      onClick={() => {
+                        navigate(`/post/edit/${postInfo.postNum}`);
+                      }}
+                    >
+                      수정
+                    </button>
+                    <button className="delete" onClick={deletePost}>
+                      삭제
+                    </button>
+                  </div>
+                )}
+              </div>
+            </header>
+
+            <div className="content">
+              {postInfo.image && (
+                <div className="imgContainer">
+                  <div className="imgDiv">
+                    <img src={postInfo.image} alt="" />
+                  </div>
                 </div>
               )}
+
+              <p>{postInfo.content}</p>
             </div>
-          </header>
+          </Post>
 
-          <div className="content">
-            {postInfo.image && (
-              <div className="imgContainer">
-                <div className="imgDiv">
-                  <img src={postInfo.image} alt="" />
-                </div>
-              </div>
-            )}
-
-            <p>{postInfo.content}</p>
-          </div>
-        </Post>
+          <ReplyArea postId={postInfo._id} />
+        </>
       ) : (
         <SpinnerDiv>
           <Spinner animation="border" variant="info" />

@@ -10,6 +10,10 @@ const postSchema = new mongoose.Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: 'User',
     },
+    replyNum: {
+      type: Number,
+      default: 0,
+    },
   },
   { Collation: 'posts' }
 );

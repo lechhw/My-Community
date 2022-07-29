@@ -15,6 +15,7 @@ app.use(express.urlencoded({ extended: true }));
 // router 연결
 app.use('/api/post', require('./server/router/postRouter'));
 app.use('/api/user', require('./server/router/userRouter'));
+app.use('/api/reply', require('./server/router/replyRouter'));
 
 // mongoDB 연결
 app.listen(port, () => {
