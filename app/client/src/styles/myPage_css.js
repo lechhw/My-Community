@@ -1,31 +1,44 @@
 import styled from '@emotion/styled';
 
 const MyPageDiv = styled.form`
-  width: 90%;
-  max-width: 82.5rem;
-  margin: 0 auto;
+  font-family: 'Mukta', sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
+  max-width: 62.5rem;
+  padding: 3rem 1rem;
+  margin: 0 auto;
+
+  @media screen and (max-width: 36rem) {
+    padding-top: 2rem;
+  }
 
   // 프로필 이미지
-  .avatarDiv {
+  .profileImgDiv {
     display: flex;
     justify-content: center;
     margin-bottom: 3.5rem;
+
+    @media screen and (max-width: 36rem) {
+      margin-bottom: 1.8rem;
+    }
 
     .fileInput {
       display: none;
     }
 
-    .avatar {
-      width: 200px;
-      height: 200px;
+    .image {
+      width: 12.5rem;
+      height: 12.5rem;
       margin: 0 auto;
-      margin-top: 4rem;
       border-radius: 50%;
+      border: 1px solid #dddddd;
       overflow: hidden;
-      box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+
+      @media screen and (max-width: 36rem) {
+        width: 11.8rem;
+        height: 11.8rem;
+      }
 
       img {
         display: block;
@@ -38,33 +51,38 @@ const MyPageDiv = styled.form`
   }
 
   // 닉네임 css
-  .nameInfo {
+  .profileNameDiv {
     display: flex;
     align-items: center;
     padding-left: 1rem;
     margin-bottom: 2.6rem;
 
-    p {
+    @media screen and (max-width: 36rem) {
+      margin-bottom: 1.5rem;
+    }
+
+    .name {
       font-size: 1.2rem;
       font-weight: 600;
       margin-right: 0.5rem;
     }
 
-    .changeBtn {
+    .editBtn {
       position: relative;
       top: -0.08rem;
       font-size: 1.1rem;
       color: #112b3c;
+      transition: color 200ms ease-in-out;
 
       &:hover {
-        opacity: 0.7;
+        color: #2fa4ff;
       }
     }
   }
 
-  // 닉네임 변경 양식 css
-  .changeNameDiv {
-    width: 80%;
+  // 닉네임 수정 폼
+  .editNameDiv {
+    width: 100%;
     max-width: 25rem;
 
     .nameLabel {
@@ -75,33 +93,41 @@ const MyPageDiv = styled.form`
       color: #666666;
     }
 
-    .nameWrapper {
+    .editForm {
       display: flex;
-      align-items: center;
-      margin-bottom: 1rem;
+      flex-direction: column;
 
-      .nameInput {
-        flex-grow: 1;
+      .input {
         padding: 0.6rem 1rem;
-        margin-right: 0.5rem;
+        margin-bottom: 1rem;
+        font-size: 1rem;
         border-radius: 0.8rem;
         border: 1px solid #dddddd;
         outline-color: #2fa4ff;
       }
 
-      .nameCheckBtn {
-        flex-grow: 0;
-        flex-shrink: 0;
-        padding: 0.8rem;
-        font-size: 0.9rem;
+      .checkInfo {
+        margin-bottom: 1rem;
+        text-align: center;
+        font-weight: 500;
+      }
+
+      .checkBtn {
+        padding: 1rem 0;
+        margin-bottom: 1rem;
+        font-size: 1rem;
         font-weight: 600;
         color: #ffffff;
         background-color: #112b3c;
         border-radius: 0.6rem;
-        transition: opacity 150ms ease-in-out;
+        transition: background-color 200ms ease-in-out;
 
-        &:hover {
-          opacity: 0.7;
+        @media screen and (max-width: 36rem) {
+          margin-bottom: 0.5rem;
+        }
+
+        &:not(:disabled)&:hover {
+          background-color: #334257;
         }
 
         &:disabled {
@@ -109,24 +135,24 @@ const MyPageDiv = styled.form`
           cursor: not-allowed;
         }
       }
-    }
-  }
 
-  // 저장버튼 css
-  .saveBtn {
-    width: 80%;
-    max-width: 25rem;
-    margin: 0 auto;
-    padding: 1rem;
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: #ffffff;
-    background-color: #2fa4ff;
-    border-radius: 0.8rem;
-    transition: opacity 150ms ease-in-out;
+      // 저장버튼 css
+      .saveBtn {
+        width: 100%;
+        max-width: 25rem;
+        margin: 0 auto;
+        padding: 1rem;
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: #ffffff;
+        background-color: #2fa4ff;
+        border-radius: 0.8rem;
+        transition: background-color 200ms ease-in-out;
 
-    &:hover {
-      opacity: 0.7;
+        &:hover {
+          background-color: #47b5ff;
+        }
+      }
     }
   }
 `;

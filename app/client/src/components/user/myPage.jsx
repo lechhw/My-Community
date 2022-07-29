@@ -8,9 +8,9 @@ import firebase from '../../firebase';
 function MyPage() {
   const [currentImage, setCurrentImage] = useState('');
   const [currentName, setCurrentName] = useState('');
+  const [editName, setEditName] = useState(false);
   const [nameCheck, setNameCheck] = useState(false);
-  const [nameInfo, setNameInfo] = useState('');
-  const [changeName, setChangeName] = useState(false);
+  const [nameCheckInfo, setNameCheckInfo] = useState('');
 
   const user = useSelector((state) => state.user);
   let navigate = useNavigate();
@@ -33,9 +33,9 @@ function MyPage() {
         if (response.data.success) {
           if (response.data.check) {
             setNameCheck(true);
-            setNameInfo('👌 사용 가능한 이름입니다.');
+            setNameCheckInfo('👌 사용 가능한 이름입니다.');
           } else {
-            setNameInfo('⚠️ 사용 불가능한 이름입니다.');
+            setNameCheckInfo('⚠️ 사용 불가능한 이름입니다.');
           }
         }
       })
@@ -106,7 +106,7 @@ function MyPage() {
 
   return (
     <MyPageDiv>
-      <div className="avatarDiv">
+      <div className="profileImgDiv">
         <label htmlFor="file">
           <input
             id="file"
@@ -115,35 +115,37 @@ function MyPage() {
             accept="image/*"
             onChange={uploadImage}
           />
-          <div className="avatar">
-            <img src={currentImage} alt="avatar" />
+
+          <div className="image">
+            <img src={currentImage} alt="profile" />
           </div>
         </label>
       </div>
 
-      <div className="nameInfo">
-        <p>{currentName}</p>
+      <div className="profileNameDiv">
+        <p className="name">{currentName}</p>
+
         <button
-          className="changeBtn"
+          className="editBtn"
           onClick={(e) => {
             e.preventDefault();
-            setChangeName(true);
+            setEditName(true);
           }}
         >
           <i className="fa-solid fa-pen-to-square"></i>
         </button>
       </div>
 
-      {changeName && (
-        <div className="changeNameDiv">
+      {editName && (
+        <div className="editNameDiv">
           <label htmlFor="name" className="nameLabel">
             닉네임
           </label>
 
-          <div className="nameWrapper">
+          <div className="editForm">
             <input
               id="name"
-              className="nameInput"
+              className="input"
               type="text"
               value={currentName}
               onChange={(e) => {
@@ -151,21 +153,23 @@ function MyPage() {
               }}
               placeholder="닉네임을 입력해주세요."
             />
+
+            {nameCheckInfo && <p className="checkInfo">{nameCheckInfo}</p>}
+
             <button
               disabled={nameCheck}
-              className="nameCheckBtn"
+              className="checkBtn"
               onClick={nameCheckFunc}
             >
-              중복 체크
+              중복 검사
+            </button>
+
+            <button className="saveBtn" onClick={updateProfile}>
+              저장
             </button>
           </div>
-          {nameInfo && <p>{nameInfo}</p>}
         </div>
       )}
-
-      <button className="saveBtn" onClick={updateProfile}>
-        저장
-      </button>
     </MyPageDiv>
   );
 }
