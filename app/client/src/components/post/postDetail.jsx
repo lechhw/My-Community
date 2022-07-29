@@ -4,6 +4,8 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { PostDetailDiv, Post, SpinnerDiv } from '../../styles/postDetail_css';
 import { Spinner } from 'react-bootstrap';
 import ReplyArea from '../reply/replyArea';
+import moment from 'moment';
+import 'moment/locale/ko';
 
 function PostDetail() {
   const [postInfo, setPostInfo] = useState({});
@@ -15,6 +17,16 @@ function PostDetail() {
 
   useOnClickOutside(modalRef, () => setOpenEditModal(false));
 
+  // 업로드 & 업데이트 time
+  const setTime = (a, b) => {
+    if (a !== b) {
+      return moment(b).format('LLL') + ' (수정됨)';
+    } else {
+      return moment(a).format('LLL');
+    }
+  };
+
+  // 게시글 삭제
   const deletePost = (e) => {
     e.preventDefault();
     if (window.confirm('정말 삭제하시겠습니까?')) {
@@ -77,6 +89,10 @@ function PostDetail() {
                     <strong className="name">
                       {postInfo.author.displayName}
                     </strong>
+
+                    <p className="time">
+                      {setTime(postInfo.createdAt, postInfo.updatedAt)}
+                    </p>
                   </div>
                 </div>
               </div>
@@ -100,6 +116,7 @@ function PostDetail() {
                     >
                       수정
                     </button>
+
                     <button className="delete" onClick={deletePost}>
                       삭제
                     </button>

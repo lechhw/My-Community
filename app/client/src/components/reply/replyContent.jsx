@@ -2,6 +2,8 @@ import axios from 'axios';
 import React, { useRef, useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { ReplyContentDiv, EditReplyForm } from '../../styles/replyArea_css';
+import moment from 'moment';
+import 'moment/locale/ko';
 
 function ReplyContent({ reply }) {
   const [openEditModal, setOpenEditModal] = useState(false);
@@ -11,6 +13,15 @@ function ReplyContent({ reply }) {
   const user = useSelector((state) => state.user);
 
   useOnClickOutside(modalRef, () => setOpenEditModal(false));
+
+  // 업로드 & 업데이트 time
+  const setTime = (a, b) => {
+    if (a !== b) {
+      return moment(b).format('LLL') + ' (수정됨)';
+    } else {
+      return moment(a).format('LLL');
+    }
+  };
 
   // 댓글 삭제
   const deleteReply = (e) => {
@@ -97,6 +108,7 @@ function ReplyContent({ reply }) {
                 >
                   수정
                 </button>
+
                 <button className="delete" onClick={deleteReply}>
                   삭제
                 </button>
@@ -115,16 +127,19 @@ function ReplyContent({ reply }) {
               setCurrentReply(e.currentTarget.value);
             }}
           />
+
           <div className="buttonDiv">
             <button className="cancel" onClick={() => setOpenEditModal(false)}>
               취소
             </button>
+
             <button onClick={onSubmit}>등록</button>
           </div>
         </EditReplyForm>
       ) : (
         <div className="content">
-          <p>{reply.reply}</p>
+          <p className="reply">{reply.reply}</p>
+          <p className="time">{setTime(reply.createdAt, reply.updatedAt)}</p>
         </div>
       )}
     </ReplyContentDiv>

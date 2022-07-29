@@ -12,7 +12,7 @@ const replySchema = new mongoose.Schema(
       type: mongoose.Schema.Types.ObjectId,
     },
   },
-  { Collation: 'replies' }
+  { Collation: 'replies', timestamps: true }
 );
 
 const Reply = mongoose.model('Reply', replySchema);

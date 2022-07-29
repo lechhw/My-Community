@@ -15,7 +15,7 @@ const postSchema = new mongoose.Schema(
       default: 0,
     },
   },
-  { Collation: 'posts' }
+  { Collation: 'posts', timestamps: true }
 );
 
 const Post = mongoose.model('Post', postSchema);

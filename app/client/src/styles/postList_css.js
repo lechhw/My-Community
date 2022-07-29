@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 
 const PostListDiv = styled.div`
+  font-family: 'Mukta', sans-serif;
   max-width: 62.5rem;
   padding: 0 1rem;
   margin: 0 auto;
@@ -25,7 +26,7 @@ const PostItem = styled.div`
 
     .title {
       margin-bottom: 0.8rem;
-      font-size: 1.5rem;
+      font-size: 1.4rem;
       font-weight: 600;
       color: #363636;
     }
@@ -34,8 +35,8 @@ const PostItem = styled.div`
       display: flex;
 
       .avatar {
-        width: 40px;
-        height: 40px;
+        width: 2.3rem;
+        height: 2.3rem;
         margin-right: 0.6rem;
         border-radius: 50%;
         overflow: hidden;
@@ -50,12 +51,19 @@ const PostItem = styled.div`
       }
 
       .record {
-        padding-top: 0.5rem;
+        padding-top: 0.3rem;
 
         .name {
-          font-size: 0.95rem;
-          font-weight: 600;
-          color: #363636;
+          display: block;
+          font-size: 0.9rem;
+          font-weight: 700;
+          color: #343434;
+          margin-bottom: 0.4rem;
+        }
+
+        .time {
+          font-size: 0.85rem;
+          color: #888888;
         }
       }
     }
@@ -63,7 +71,7 @@ const PostItem = styled.div`
 
   .content {
     padding: 1.5rem;
-    font-size: 1.1rem;
+    font-size: 1rem;
     color: #2d2d2d;
 
     .imgContainer {

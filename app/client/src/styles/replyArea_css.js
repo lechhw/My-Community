@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 
 const ReplyAreaDiv = styled.div`
+  font-family: 'Mukta', sans-serif;
   max-width: 62.5rem;
   margin: 0 auto;
   margin-top: 3.5rem;
@@ -17,9 +18,10 @@ const UploadReplyDiv = styled.div`
 
     input {
       flex-grow: 1;
-      padding: 0.7rem 1rem;
+      font-size: 1rem;
+      padding: 0.6rem 1rem;
       border: 0;
-      background-color: #ececec;
+      background-color: #f0f0f0;
       outline: none;
     }
 
@@ -52,7 +54,7 @@ const ReplyContentDiv = styled.div`
   .header {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.2rem;
 
     .userInfo {
       display: flex;
@@ -60,8 +62,8 @@ const ReplyContentDiv = styled.div`
     }
 
     .avatar {
-      width: 35px;
-      height: 35px;
+      width: 2rem;
+      height: 2rem;
       margin-right: 0.6rem;
       border-radius: 50%;
       overflow: hidden;
@@ -77,8 +79,8 @@ const ReplyContentDiv = styled.div`
 
     .name {
       font-size: 0.9rem;
-      font-weight: 600;
-      color: #363636;
+      font-weight: 700;
+      color: #343434;
     }
 
     .editMenu {
@@ -119,6 +121,20 @@ const ReplyContentDiv = styled.div`
           color: #eb4747;
         }
       }
+    }
+  }
+
+  .content {
+    padding-left: 0.2rem;
+
+    .reply {
+      font-size: 1rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .time {
+      font-size: 0.8rem;
+      color: #888888;
     }
   }
 `;
