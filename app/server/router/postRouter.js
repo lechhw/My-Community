@@ -43,8 +43,25 @@ router.post('/submit', (req, res) => {
 
 // post list
 router.post('/list', (req, res) => {
-  Post.find()
+  let sort = {};
+  if (req.body.sort === '최신순') {
+    sort.createdAt = -1;
+  } else {
+    sort.replyNum = -1;
+  }
+
+  Post.find({
+    // $or : 조건이 둘중 하나라로 충족할경우. 배열로 넣어준다.
+    // $regex : 해당 값이 포함되어있는지
+    $or: [
+      { title: { $regex: req.body.search } },
+      { content: { $regex: req.body.search } },
+    ],
+  })
     .populate('author')
+    .sort(sort)
+    .skip(req.body.skip)
+    .limit(5) // 5개씩 보여주기
     .exec()
     .then((doc) => {
       res.status(200).json({ success: true, postList: doc });
