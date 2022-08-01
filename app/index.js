@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const path = require('path');
 const config = require('./server/config/key');
 const app = express();
-const port = 3500;
+const port = process.env.PORT || 3500;
 
 // static 파일 설정
 app.use(express.static(path.join(__dirname, './client/build')));
