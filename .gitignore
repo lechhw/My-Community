@@ -4,7 +4,6 @@
 
 /app/client/node_modules
 /app/client/package-lock.json
-/app/client/build
 /app/client/.env
 
 /app/server/config/dev.js
