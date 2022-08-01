@@ -1,13 +1,13 @@
 import styled from '@emotion/styled';
 
+// post list
 const PostListDiv = styled.div`
   font-family: 'Mukta', sans-serif;
   max-width: 62.5rem;
-  padding: 0 1rem;
   margin: 0 auto;
-  margin-top: 3rem;
 `;
 
+// post item
 const PostItem = styled.div`
   margin-top: 1.5rem;
   border-radius: 0.3rem;
@@ -19,11 +19,13 @@ const PostItem = styled.div`
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   }
 
+  // post header
   .header {
     width: 100%;
     padding: 1.5rem;
     border-bottom: 1px solid #dddddd;
 
+    // 게시글 제목
     .title {
       margin-bottom: 0.8rem;
       font-size: 1.4rem;
@@ -31,9 +33,11 @@ const PostItem = styled.div`
       color: #363636;
     }
 
+    // 게시글 정보
     .postInfo {
       display: flex;
 
+      // 프로필 이미지
       .avatar {
         width: 2.3rem;
         height: 2.3rem;
@@ -50,9 +54,10 @@ const PostItem = styled.div`
         }
       }
 
-      .record {
+      .info {
         padding-top: 0.3rem;
 
+        // user name
         .name {
           display: block;
           font-size: 0.9rem;
@@ -61,6 +66,7 @@ const PostItem = styled.div`
           margin-bottom: 0.4rem;
         }
 
+        // timestamps
         .time {
           font-size: 0.85rem;
           color: #888888;
@@ -69,11 +75,13 @@ const PostItem = styled.div`
     }
   }
 
+  // 게시글 내용
   .content {
     padding: 1.5rem;
     font-size: 1rem;
     color: #2d2d2d;
 
+    // 이미지 업로드시
     .imgContainer {
       display: flex;
       justify-content: center;

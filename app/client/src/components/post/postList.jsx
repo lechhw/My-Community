@@ -28,7 +28,7 @@ function PostList({ postList }) {
                     <img src={post.author.photoURL} alt="avatar" />
                   </div>
 
-                  <div className="record">
+                  <div className="info">
                     <strong className="name">{post.author.displayName}</strong>
 
                     <p className="time">
