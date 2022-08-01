@@ -6,7 +6,7 @@ const MyPageDiv = styled.form`
   flex-direction: column;
   align-items: center;
   max-width: 62.5rem;
-  padding: 3rem 1rem;
+  padding: 4rem 1rem;
   margin: 0 auto;
 
   @media screen and (max-width: 36rem) {
@@ -50,7 +50,7 @@ const MyPageDiv = styled.form`
     }
   }
 
-  // 닉네임 css
+  // 닉네임
   .profileNameDiv {
     display: flex;
     align-items: center;
@@ -67,6 +67,7 @@ const MyPageDiv = styled.form`
       margin-right: 0.5rem;
     }
 
+    // 닉네임 수정 버튼
     .editBtn {
       position: relative;
       top: -0.08rem;
@@ -106,12 +107,14 @@ const MyPageDiv = styled.form`
         outline-color: #2fa4ff;
       }
 
+      // 닉네임 중복검사 메세지
       .checkInfo {
         margin-bottom: 1rem;
         text-align: center;
         font-weight: 500;
       }
 
+      // 닉네임 중복검사 버튼
       .checkBtn {
         padding: 1rem 0;
         margin-bottom: 1rem;
@@ -126,7 +129,7 @@ const MyPageDiv = styled.form`
           margin-bottom: 0.5rem;
         }
 
-        &:not(:disabled)&:hover {
+        &:not(:disabled):hover {
           background-color: #334257;
         }
 
@@ -136,7 +139,7 @@ const MyPageDiv = styled.form`
         }
       }
 
-      // 저장버튼 css
+      // 저장버튼
       .saveBtn {
         width: 100%;
         max-width: 25rem;

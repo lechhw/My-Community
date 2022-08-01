@@ -6,13 +6,20 @@ const MainPageDiv = styled.div`
   padding: 2.5rem 1rem;
   margin: 0 auto;
 
+  // search
   .searchDiv {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 2rem;
+
+    @media screen and (max-width: 36rem) {
+      flex-wrap: wrap;
+      margin-bottom: 0.8rem;
+    }
   }
 
+  // search form
   .searchForm {
     display: flex;
     justify-content: space-between;
@@ -21,14 +28,18 @@ const MainPageDiv = styled.div`
     border-radius: 0.4rem;
     overflow: hidden;
 
+    @media screen and (max-width: 36rem) {
+      margin-bottom: 0.8rem;
+    }
+
     input {
+      flex-grow: 1;
       padding: 0.3rem 1rem;
       border: 0;
       border: 1px solid #dddddd;
       border-right: 0;
       border-top-left-radius: 0.4rem;
       border-bottom-left-radius: 0.4rem;
-      flex-basis: 100%;
       font-size: 1rem;
 
       &:focus {
@@ -37,6 +48,8 @@ const MainPageDiv = styled.div`
     }
 
     button {
+      flex-grow: 0;
+      flex-shrink: 0;
       padding: 0 1rem;
       background-color: #2fa4ff;
       color: #ffffff;
@@ -49,12 +62,12 @@ const MainPageDiv = styled.div`
     }
   }
 
+  // 정렬 버튼
   #sortBtn {
     border-color: #c6c6c6;
-    flex-grow: 0;
-    flex-shrink: 0;
   }
 
+  // 더보기 버튼
   .loadMoreBtn {
     display: block;
     padding: 0.5rem 0.8rem;
