@@ -13,6 +13,7 @@ function Header() {
 
   useOnClickOutside(modalRef, () => setOpenUserModal(false));
 
+  // 로그아웃
   const logoutFunc = (e) => {
     e.preventDefault();
     firebase.auth().signOut();

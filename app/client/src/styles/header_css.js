@@ -7,6 +7,7 @@ const HeaderDiv = styled.div`
     max-width: 68rem;
   }
 
+  // logo
   .logoDiv {
     display: flex;
     align-items: center;
@@ -21,13 +22,14 @@ const HeaderDiv = styled.div`
       font-weight: 600;
       color: #112b3c;
 
-      @media screen and (max-width: 575px) {
+      @media screen and (max-width: 36rem) {
         font-size: 1.2rem;
       }
     }
   }
 `;
 
+// 메뉴 아이콘
 const IconDiv = styled.div`
   display: flex;
   align-items: center;
@@ -42,13 +44,16 @@ const IconDiv = styled.div`
     }
   }
 
+  // post upload 버튼
   .is-upload {
     margin-right: 1.6rem;
   }
 
+  // 사용자 버튼
   .userDiv {
     position: relative;
 
+    // 사용자 메뉴 모달
     .userModal {
       position: absolute;
       top: 2rem;

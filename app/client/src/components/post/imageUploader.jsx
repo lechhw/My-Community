@@ -3,6 +3,7 @@ import React from 'react';
 import { Form } from 'react-bootstrap';
 
 function ImageUploader({ setImage }) {
+  // 이미지 업로드
   const imageUpload = (e) => {
     const formData = new FormData();
     formData.append('file', e.target.files[0]);
@@ -13,6 +14,7 @@ function ImageUploader({ setImage }) {
       }
     });
   };
+
   return (
     <div>
       <Form.Control
