@@ -167,4 +167,11 @@ const RegisterDiv = styled.div`
   }
 `;
 
-export { LoginDiv, RegisterDiv };
+const SpinnerDiv = styled.div`
+  display: flex;
+  justify-content: center;
+  padding-top: 2rem;
+  margin-bottom: -2rem;
+`;
+
+export { LoginDiv, RegisterDiv, SpinnerDiv };
