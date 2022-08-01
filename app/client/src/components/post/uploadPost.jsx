@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { UploadDiv } from '../../styles/upload_css';
+import { UploadDiv } from '../../styles/postUpload_css';
 import ImageUploader from './imageUploader';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
@@ -48,10 +48,10 @@ function UploadPost() {
 
   return (
     <UploadDiv>
-      <form>
+      <form className="uploadForm">
         <h2>게시글 작성</h2>
         <input
-          className="title"
+          className="titleInput"
           type="text"
           placeholder="제목을 입력해주세요."
           value={title}
@@ -71,6 +71,7 @@ function UploadPost() {
         )}
 
         <textarea
+          className="content"
           placeholder="내용을 입력해주세요."
           value={content}
           onChange={(e) => {

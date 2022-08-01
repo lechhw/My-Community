@@ -1,14 +1,20 @@
 import styled from '@emotion/styled';
 
 const UploadDiv = styled.div`
-  max-width: 82.5rem;
+  font-family: 'Mukta', sans-serif;
+  max-width: 62.5rem;
+  padding: 3rem 1rem 1rem 1rem;
   margin: 0 auto;
-  padding: 2.8rem 0;
 
-  form {
+  @media screen and (max-width: 36rem) {
+    padding-top: 1.8rem;
+  }
+
+  // 업로드 폼
+  .uploadForm {
     display: flex;
     flex-direction: column;
-    width: 90%;
+    width: 100%;
     margin: 0 auto;
 
     h2 {
@@ -18,8 +24,9 @@ const UploadDiv = styled.div`
       margin-bottom: 1rem;
     }
 
-    .title {
-      padding: 0.8rem 1rem;
+    // 제목
+    .titleInput {
+      padding: 0.6rem 1rem;
       margin-bottom: 1.2rem;
       font-size: 1.1rem;
       color: #112b3c;
@@ -28,6 +35,7 @@ const UploadDiv = styled.div`
       outline-color: #2fa4ff;
     }
 
+    // 이미지 업로드
     .imgContainer {
       width: 100%;
       display: flex;
@@ -54,7 +62,8 @@ const UploadDiv = styled.div`
       }
     }
 
-    textarea {
+    // 내용
+    .content {
       resize: none;
       min-height: 350px;
       padding: 1rem;
@@ -73,6 +82,7 @@ const UploadDiv = styled.div`
       display: flex;
       justify-content: center;
 
+      // 업로드 & 수정 버튼
       button {
         width: 100%;
         padding: 1rem 2rem;
@@ -81,29 +91,29 @@ const UploadDiv = styled.div`
         color: #ffffff;
         border-radius: 0.6rem;
         background-color: #2fa4ff;
-        transition: background-color 200ms ease-in-out,
-          opacity 200ms ease-in-out;
+        transition: background-color 200ms ease-in-out;
 
         &:hover {
           background-color: #47b5ff;
         }
       }
 
+      // 취소 버튼
       .cancel {
         margin-right: 3rem;
-        color: #2fa4ff;
-        background-color: #ffffff;
-        border: 2px solid #2fa4ff;
+        color: white;
+        background-color: #112b3c;
+        transition: background-color 200ms ease-in-out;
 
         &:hover {
-          background-color: #ffffff;
-          opacity: 0.7;
+          background-color: #334257;
         }
       }
     }
   }
 `;
 
+// 로딩 스피너
 const SpinnerDiv = styled.div`
   display: flex;
   justify-content: center;

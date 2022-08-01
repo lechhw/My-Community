@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
-import { UploadDiv, SpinnerDiv } from '../../styles/upload_css';
+import { UploadDiv, SpinnerDiv } from '../../styles/postUpload_css';
 import { Spinner } from 'react-bootstrap';
 import ImageUploader from './imageUploader';
 
@@ -14,6 +14,7 @@ function EditPost() {
   let params = useParams();
   let navigate = useNavigate();
 
+  // 게시글 수정
   const onSubmit = (e) => {
     e.preventDefault();
 
@@ -38,7 +39,7 @@ function EditPost() {
     });
   };
 
-  // post 불러오기
+  // 게시글 불러오기
   useEffect(() => {
     let body = {
       postNum: params.postNum,
@@ -66,10 +67,10 @@ function EditPost() {
   return (
     <UploadDiv>
       {loading ? (
-        <form>
+        <form className="uploadForm">
           <h2>게시글 수정</h2>
           <input
-            className="title"
+            className="titleInput"
             type="text"
             value={title || ''}
             onChange={(e) => {
@@ -88,6 +89,7 @@ function EditPost() {
           )}
 
           <textarea
+            className="content"
             value={content || ''}
             onChange={(e) => {
               setContent(e.currentTarget.value);
