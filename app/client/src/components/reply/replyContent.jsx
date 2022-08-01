@@ -87,7 +87,8 @@ function ReplyContent({ reply }) {
           <p className="name">{reply.author.displayName}</p>
         </div>
 
-        {user.accessToken && (
+        {/* 해당 댓글 작성자만 수정 가능 */}
+        {user.uid === reply.author.uid && (
           <div className="editMenu">
             <button
               className="editBtn"

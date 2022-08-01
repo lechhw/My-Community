@@ -11,12 +11,14 @@ const Post = styled.div`
   border-radius: 0.2rem;
   border: 1px solid #dddddd;
 
+  // post header
   .header {
     display: flex;
     justify-content: space-between;
     padding: 1.5rem;
     border-bottom: 1px solid #dddddd;
 
+    // post 정보
     .postInfoDiv {
       .title {
         margin-bottom: 0.8rem;
@@ -63,6 +65,7 @@ const Post = styled.div`
       }
     }
 
+    // post 수정버튼
     .editGroup {
       position: relative;
 
@@ -104,11 +107,13 @@ const Post = styled.div`
     }
   }
 
+  // post content
   .content {
     padding: 1.5rem;
     font-size: 1rem;
     color: #2d2d2d;
 
+    // 이미지 업로드시
     .imgContainer {
       width: 100%;
       display: flex;
@@ -133,6 +138,7 @@ const Post = styled.div`
   }
 `;
 
+// 로딩 스피너
 const SpinnerDiv = styled.div`
   display: flex;
   justify-content: center;

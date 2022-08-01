@@ -6,6 +6,7 @@ import { Spinner } from 'react-bootstrap';
 import ReplyArea from '../reply/replyArea';
 import moment from 'moment';
 import 'moment/locale/ko';
+import { useSelector } from 'react-redux';
 
 function PostDetail() {
   const [postInfo, setPostInfo] = useState({});
@@ -13,6 +14,7 @@ function PostDetail() {
   const [loading, setLoading] = useState(false);
   const params = useParams();
   const modalRef = useRef();
+  const user = useSelector((state) => state.user);
   let navigate = useNavigate();
 
   useOnClickOutside(modalRef, () => setOpenEditModal(false));
@@ -97,32 +99,35 @@ function PostDetail() {
                 </div>
               </div>
 
-              <div className="editGroup">
-                <button
-                  className="editBtn"
-                  onClick={() => {
-                    setOpenEditModal(true);
-                  }}
-                >
-                  <i className="fa-solid fa-ellipsis"></i>
-                </button>
+              {/* 해당 게시글 작성자만 수정 가능 */}
+              {user.uid === postInfo.author.uid && (
+                <div className="editGroup">
+                  <button
+                    className="editBtn"
+                    onClick={() => {
+                      setOpenEditModal(true);
+                    }}
+                  >
+                    <i className="fa-solid fa-ellipsis"></i>
+                  </button>
 
-                {openEditModal && (
-                  <div ref={modalRef} className="editModal">
-                    <button
-                      onClick={() => {
-                        navigate(`/post/edit/${postInfo.postNum}`);
-                      }}
-                    >
-                      수정
-                    </button>
+                  {openEditModal && (
+                    <div ref={modalRef} className="editModal">
+                      <button
+                        onClick={() => {
+                          navigate(`/post/edit/${postInfo.postNum}`);
+                        }}
+                      >
+                        수정
+                      </button>
 
-                    <button className="delete" onClick={deletePost}>
-                      삭제
-                    </button>
-                  </div>
-                )}
-              </div>
+                      <button className="delete" onClick={deletePost}>
+                        삭제
+                      </button>
+                    </div>
+                  )}
+                </div>
+              )}
             </header>
 
             <div className="content">
