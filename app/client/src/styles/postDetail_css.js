@@ -110,7 +110,8 @@ const Post = styled.div`
   // post content
   .content {
     padding: 1.5rem;
-    font-size: 1rem;
+    font-size: 1.1rem;
+    line-height: 1.6;
     color: #2d2d2d;
 
     // 이미지 업로드시

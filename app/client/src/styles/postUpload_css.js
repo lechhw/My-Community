@@ -68,6 +68,7 @@ const UploadDiv = styled.div`
       min-height: 350px;
       padding: 1rem;
       font-size: 1.1rem;
+      line-height: 1.6;
       color: #112b3c;
       border-radius: 0.6rem;
       border: 1px solid #c6c6c6;
