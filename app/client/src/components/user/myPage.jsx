@@ -50,7 +50,7 @@ function MyPage() {
   const updateProfile = async (e) => {
     e.preventDefault();
 
-    if (currentName === '' && !nameCheck) {
+    if (currentName !== user.displayName && !nameCheck) {
       return alert('❗️ 닉네임 중복검사를 진행해 주세요.');
     }
 
