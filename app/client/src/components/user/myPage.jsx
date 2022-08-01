@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { MyPageDiv } from '../../styles/myPage_css';
+import { Spinner } from 'react-bootstrap';
 import firebase from '../../firebase';
 
 function MyPage() {
@@ -11,6 +12,7 @@ function MyPage() {
   const [editName, setEditName] = useState(false);
   const [nameCheck, setNameCheck] = useState(false);
   const [nameCheckInfo, setNameCheckInfo] = useState('');
+  const [loading, setLoading] = useState(true);
 
   const user = useSelector((state) => state.user);
   let navigate = useNavigate();
@@ -87,9 +89,11 @@ function MyPage() {
     const formData = new FormData();
     formData.append('file', e.target.files[0]);
 
+    setLoading(false);
     axios.post('/api/user/profile/image', formData).then((response) => {
       if (response.data.success) {
         setCurrentImage(response.data.filePath);
+        setLoading(true);
       }
     });
   };
@@ -116,9 +120,15 @@ function MyPage() {
             onChange={uploadImage}
           />
 
-          <div className="image">
-            <img src={currentImage} alt="profile" />
-          </div>
+          {loading ? (
+            <div className="image">
+              <img src={currentImage} alt="profile" />
+            </div>
+          ) : (
+            <div className="spinner">
+              <Spinner animation="border" variant="info" />
+            </div>
+          )}
         </label>
       </div>
 
