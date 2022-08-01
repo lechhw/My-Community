@@ -66,6 +66,7 @@ const IconDiv = styled.div`
       background-color: #ffffff;
       border-radius: 0.5rem;
       box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+      z-index: 1;
 
       button {
         padding: 0.6rem;
