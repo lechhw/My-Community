@@ -139,7 +139,7 @@ function PostDetail() {
                 </div>
               )}
 
-              <pre>{postInfo.content}</pre>
+              <p>{postInfo.content}</p>
             </div>
           </Post>
 

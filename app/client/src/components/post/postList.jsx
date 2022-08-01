@@ -47,7 +47,7 @@ function PostList({ postList }) {
                   </div>
                 )}
 
-                <pre>{post.content}</pre>
+                <p>{post.content}</p>
               </div>
             </PostItem>
           </Link>
