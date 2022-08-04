@@ -48,7 +48,7 @@ React 를 사용하여 작업하였고, 서버는 node.js + express 를 사용�
 
 ## 로그인 & 회원가입
 
-<img src="https://user-images.githubusercontent.com/99241230/182768240-a2a690f8-c444-42a2-94cb-800574670297.gif">
+<img src="https://user-images.githubusercontent.com/99241230/182778477-d0887915-79c0-4a49-8549-076f666005cf.gif">
 
 <br>
 
