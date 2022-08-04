@@ -2,6 +2,10 @@ import styled from '@emotion/styled';
 
 const HeaderDiv = styled.div`
   font-family: 'Mukta', sans-serif;
+  box-shadow: rgba(0, 0, 0, 0.24) 0 0 6px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
 
   .container {
     max-width: 68rem;
